@@ -5,18 +5,16 @@ import {
 import { NavigationContainer } from "@react-navigation/native";
 import { IExpense } from "@src/common/entities/Expense";
 import { Expenses } from "@src/screens/Expenses";
+import { ExpenseForm } from "@src/screens/ExpenseForm";
 
 export type PropsNavigationStack = {
   Expenses: {
     newExpense?: boolean;
   };
-  //   CreateExpense: {
-  //     screen: string;
-  //   };
-  //   UpdateExpense: {
-  //     expenseInfo?: IExpense;
-  //     screen: string;
-  //   };
+  ExpenseForm: {
+    expenseInfo?: IExpense;
+    screen: string;
+  };
 };
 
 const Stack = createNativeStackNavigator<PropsNavigationStack>();
@@ -33,7 +31,7 @@ export const Routes = () => {
         }}
       >
         <Stack.Screen name="Expenses" component={Expenses} />
-        {/* <Stack.Screen name="CreateExpense" component={CreateExpense} /> */}
+        <Stack.Screen name="ExpenseForm" component={ExpenseForm} />
         {/* <Stack.Screen name="UpdateExpense" component={UpdateExpense} /> */}
       </Stack.Navigator>
     </NavigationContainer>

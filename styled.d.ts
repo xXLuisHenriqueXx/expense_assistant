@@ -3,12 +3,12 @@ import "styled-components";
 declare module "styled-components" {
   export interface DefaultTheme {
     colors: {
-      textPrimary: string;
-      textSecondary: string;
-      textPlaceholder: string;
+      primary: string;
+      primary30: string;
+      secondary: string;
       highlight: string;
-      background: string;
-      backgroundSecondary: string;
+      highlight30: string;
+      tertiary: string;
     };
     borderRadius: {
       default: string;

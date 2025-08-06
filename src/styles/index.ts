@@ -2,15 +2,15 @@ import { DefaultTheme } from "styled-components";
 
 export const theme: DefaultTheme = {
   colors: {
-    textPrimary: "#E9E9F0",
-    textSecondary: "#241F30",
-    textPlaceholder: "#E9E9F050",
-    highlight: "#7E56F6",
-    background: "#1C1827",
-    backgroundSecondary: "#7E56F625",
+    primary: "#E9E9F0",
+    primary30: "#E9E9F050",
+    secondary: "#1A202C",
+    tertiary: "#34384E",
+    highlight: "#32D59E",
+    highlight30: "#32D59E50",
   },
   borderRadius: {
-    default: "5",
+    default: "4",
   },
   fonts: {
     interRegular: "Inter_400Regular",

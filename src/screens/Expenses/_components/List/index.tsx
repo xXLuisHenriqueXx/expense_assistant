@@ -1,4 +1,4 @@
-import { Alert, FlatList, RefreshControl } from "react-native";
+import { Alert, FlatList, ListRenderItem, RefreshControl } from "react-native";
 import { OctagonX } from "lucide-react-native";
 
 import { IExpense } from "@src/common/entities/Expense";
@@ -12,6 +12,8 @@ import {
   Title,
 } from "./styles";
 import { Item } from "./Item";
+import ContainerRenderAnimated from "@src/components/ContainerRenderAnimated";
+import { useState } from "react";
 
 interface ExpensesListProps {
   data: IExpense[];
@@ -28,6 +30,8 @@ export const List = ({
 }: ExpensesListProps) => {
   const { theme } = useThemeStore();
 
+  const [deletedExpense, setDeletedExpense] = useState<boolean>(false);
+
   const handleDelete = (id: string) => {
     Alert.alert("DELETAR", "Deseja realmente deletar?", [
       {
@@ -39,11 +43,18 @@ export const List = ({
         onPress: async () => {
           await ExpensesService.delete(id);
 
+          setDeletedExpense(true);
           onRefresh();
         },
       },
     ]);
   };
+
+  const renderItem: ListRenderItem<IExpense> = ({ item, index }) => (
+    <ContainerRenderAnimated index={index} isDeleted={deletedExpense}>
+      <Item item={item} handleDelete={handleDelete} screen={screen} />
+    </ContainerRenderAnimated>
+  );
 
   return (
     <>
@@ -51,14 +62,7 @@ export const List = ({
         <FlatList
           data={data}
           keyExtractor={(item) => item.id}
-          renderItem={({ item, index }) => (
-            <Item
-              item={item}
-              index={index}
-              handleDelete={handleDelete}
-              screen={screen}
-            />
-          )}
+          renderItem={renderItem}
           showsVerticalScrollIndicator={false}
           numColumns={2}
           columnWrapperStyle={{ justifyContent: "space-between" }}

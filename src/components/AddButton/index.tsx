@@ -15,9 +15,9 @@ export const AddButton = ({ screen }: AddButtonProps) => {
   const navigation = useNavigation<PropsStack>();
 
   const handleNavigate = () => {
-    // navigation.navigate("CreateExpense", {
-    //   screen,
-    // });
+    navigation.navigate("ExpenseForm", {
+      screen,
+    });
   };
 
   return (
@@ -28,7 +28,7 @@ export const AddButton = ({ screen }: AddButtonProps) => {
           fill={theme.colors.highlight}
         />
         <G transform="translate(26, 29) translate(-16, -16)">
-          <Plus size={32} color={theme.colors.background} />
+          <Plus size={32} color={theme.colors.secondary} />
         </G>
       </Svg>
     </Container>

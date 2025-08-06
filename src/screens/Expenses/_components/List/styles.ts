@@ -18,7 +18,7 @@ export const Title = styled.Text`
 export const Subtitle = styled.Text`
   font-size: 16px;
   font-family: ${({ theme }: { theme: ThemeType }) => theme.fonts.interRegular};
-  color: ${({ theme }: { theme: ThemeType }) => theme.colors.textPrimary};
+  color: ${({ theme }: { theme: ThemeType }) => theme.colors.primary};
   text-align: center;
 `;
 

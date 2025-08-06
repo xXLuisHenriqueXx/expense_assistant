@@ -44,7 +44,7 @@ export default function App() {
     <>
       <StatusBar
         barStyle={"light-content"}
-        backgroundColor={theme.colors.background}
+        backgroundColor={theme.colors.secondary}
       />
 
       <ThemeProvider theme={theme}>

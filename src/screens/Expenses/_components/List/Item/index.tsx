@@ -1,5 +1,6 @@
-import { TouchableOpacity } from "react-native";
+import { useWindowDimensions } from "react-native";
 import {
+  Container,
   Description,
   Line,
   Tag,
@@ -11,7 +12,6 @@ import {
   ValueDateText,
   ValueDateTitle,
 } from "./styles";
-import { MotiView } from "moti";
 import { useNavigation } from "@react-navigation/native";
 import { BadgeDollarSign } from "lucide-react-native";
 
@@ -22,12 +22,12 @@ import { PropsStack } from "@src/routes";
 
 interface ItemProps {
   item: IExpense;
-  index: number;
   handleDelete: (id: string) => void;
   screen: string;
 }
 
-export const Item = ({ item, index, handleDelete, screen }: ItemProps) => {
+export const Item = ({ item, handleDelete, screen }: ItemProps) => {
+  const { width } = useWindowDimensions();
   const { theme } = useThemeStore();
   const navigation = useNavigation<PropsStack>();
 
@@ -38,69 +38,41 @@ export const Item = ({ item, index, handleDelete, screen }: ItemProps) => {
     //     });
   };
 
+  const containerWidth = (width - 16 * 2 - 16) / 2;
+
   return (
-    <MotiView
-      from={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      transition={{ type: "timing", duration: 500, delay: index * 100 }}
-      style={{
-        flex: 1,
-        maxWidth: "48%",
-        flexDirection: "column",
-        alignItems: "center",
-        height: 280,
-        paddingVertical: 16,
-        paddingHorizontal: 8,
-        marginBottom: 20,
-        borderRadius: Number(theme.borderRadius.default),
-        backgroundColor: theme.colors.textSecondary,
-      }}
+    <Container
+      style={{ width: containerWidth }}
+      onPress={handleNavigateToUpdate}
+      onLongPress={() => handleDelete(item?.id)}
     >
-      <TouchableOpacity
-        style={{
-          flex: 1,
-          width: "100%",
-          flexDirection: "column",
-          alignItems: "center",
-        }}
-        activeOpacity={0.75}
-        onPress={handleNavigateToUpdate}
-        onLongPress={() => handleDelete(item?.id)}
-      >
-        <BadgeDollarSign size={32} color={theme.colors.highlight} />
+      <BadgeDollarSign size={32} color={theme.colors.highlight} />
 
-        <Title numberOfLines={2}>{item.title}</Title>
+      <Title numberOfLines={2}>{item.title}</Title>
 
-        <Description numberOfLines={6}>{item.description}</Description>
+      <Description numberOfLines={6}>{item.description}</Description>
 
-        <TagsValueDateContainer>
-          <TagsContainer>
-            {item.category.map((category, index) => (
-              <Tag
-                key={index}
-                borderColor={category.borderColor}
-                backgroundColor={category.backgroundColor}
-              >
-                {category.name}
-              </Tag>
-            ))}
-          </TagsContainer>
+      <TagsValueDateContainer>
+        <TagsContainer>
+          {item.category.map((category, index) => (
+            <Tag key={index}>{category.name}</Tag>
+          ))}
+        </TagsContainer>
 
-          <Line />
+        <Line />
 
-          <ValueDateContainer>
-            <ValueDateSingleContainer>
-              <ValueDateTitle>Valor</ValueDateTitle>
-              <ValueDateText>R$ {item.value.toFixed(2)}</ValueDateText>
-            </ValueDateSingleContainer>
+        <ValueDateContainer>
+          <ValueDateSingleContainer>
+            <ValueDateTitle>Valor</ValueDateTitle>
+            <ValueDateText>R$ {item.value.toFixed(2)}</ValueDateText>
+          </ValueDateSingleContainer>
 
-            <ValueDateSingleContainer>
-              <ValueDateTitle>Vencimento</ValueDateTitle>
-              <ValueDateText>{getDate(item.date)}</ValueDateText>
-            </ValueDateSingleContainer>
-          </ValueDateContainer>
-        </TagsValueDateContainer>
-      </TouchableOpacity>
-    </MotiView>
+          <ValueDateSingleContainer>
+            <ValueDateTitle>Vencimento</ValueDateTitle>
+            <ValueDateText>{getDate(item.date)}</ValueDateText>
+          </ValueDateSingleContainer>
+        </ValueDateContainer>
+      </TagsValueDateContainer>
+    </Container>
   );
 };

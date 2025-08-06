@@ -1,7 +1,7 @@
-import { Container, Lock, LockOpen, LucideIcon } from "lucide-react-native";
+import { Container, NavButton, NavButtonText } from "./styles";
+import { Lock, LockOpen, LucideIcon } from "lucide-react-native";
 
 import { useThemeStore } from "@src/stores/ThemeStore";
-import { NavButton, NavButtonText } from "./styled";
 
 interface HeaderNavProps {
   screen: string;
@@ -40,10 +40,6 @@ export const HeaderNav = ({ screen, setScreen }: HeaderNavProps) => {
             key={index}
             isActive={isScreenActive}
             onPress={() => setScreen(screenActive)}
-            style={{
-              elevation: 10,
-              shadowColor: theme.colors.highlight,
-            }}
           >
             <NavButtonText isActive={isScreenActive}>{title}</NavButtonText>
 
@@ -51,9 +47,7 @@ export const HeaderNav = ({ screen, setScreen }: HeaderNavProps) => {
               size={16}
               strokeWidth={3}
               color={
-                isScreenActive
-                  ? theme.colors.textSecondary
-                  : theme.colors.highlight
+                isScreenActive ? theme.colors.tertiary : theme.colors.highlight
               }
               style={{
                 position: "absolute",
