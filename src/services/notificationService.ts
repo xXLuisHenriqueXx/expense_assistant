@@ -5,14 +5,9 @@ import notifee, {
   TimestampTrigger,
   TriggerType,
 } from "@notifee/react-native";
+import { INotification } from "@src/common/entities/Notification";
 
 const CHANNEL_ID = "money-saver-channel";
-
-interface NotificationData {
-  id: string;
-  title: string;
-  date: Date;
-}
 
 export const NotificationsService = {
   createNotificationChannel: async () => {
@@ -79,7 +74,7 @@ export const NotificationsService = {
     console.log(`Notification created with ID: ${createNotificationID}`);
   },
 
-  scheduleNotification: async (notification: NotificationData) => {
+  scheduleNotification: async (notification: INotification) => {
     const notificationData = NotificationsService.createNotification(
       notification.id,
       notification.title
