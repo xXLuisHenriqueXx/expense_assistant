@@ -18,8 +18,9 @@ import { Wallet } from "lucide-react-native";
 import { useThemeStore } from "@src/stores/ThemeStore";
 import { useUserDatabase } from "@src/database/useUserDatabase";
 import { useUserStore } from "@src/stores/UserStore";
+import { validateLoginFields } from "@src/utils/validateLoginFields";
 
-interface IFields {
+export interface IFieldsLogin {
   name: string;
   email?: string;
 }
@@ -31,12 +32,18 @@ const Login = () => {
 
   const emailRef = useRef<TextInput>();
 
-  const [fields, setFields] = useState<IFields>({
+  const [fields, setFields] = useState<IFieldsLogin>({
     name: "",
     email: "",
   });
 
   const handleLogin = async () => {
+    const { success, message } = validateLoginFields(fields);
+    if (!success) {
+      Alert.alert(message);
+      return;
+    }
+
     setLoading(true);
     const newUser = await create(fields.name, fields.email);
     setUser(newUser);
