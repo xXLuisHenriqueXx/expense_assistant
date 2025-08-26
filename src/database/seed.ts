@@ -10,26 +10,110 @@ export async function seed(database: SQLiteDatabase) {
     console.log("[SEED] Streaming category created.", streamingCategoryId);
 
     const accounts = [
-      { name: "Sicredi", slug: "sicredi", type: "bank" },
-      { name: "Banrisul", slug: "banrisul", type: "bank" },
-      { name: "Bradesco", slug: "bradesco", type: "bank" },
-      { name: "Banco do Brasil", slug: "banco_do_brasil", type: "bank" },
-      { name: "Santander", slug: "santander", type: "bank" },
-      { name: "Itaú", slug: "itau", type: "bank" },
-      { name: "Caixa", slug: "caixa", type: "bank" },
-      { name: "PicPay", slug: "picpay", type: "digital_wallet" },
-      { name: "PayPal", slug: "paypal", type: "digital_wallet" },
-      { name: "MercadoPago", slug: "mercadopago", type: "digital_wallet" },
-      { name: "Inter", slug: "inter", type: "bank" },
-      { name: "Nubank", slug: "nubank", type: "digital_wallet" },
-      { name: "Neon", slug: "neon", type: "digital_wallet" },
-      { name: "C6", slug: "c6", type: "bank" },
+      {
+        name: "Sicredi",
+        slug: "sicredi",
+        first_color: "#70bd86",
+        second_color: "#2d5042",
+        type: "bank",
+      },
+      {
+        name: "Banrisul",
+        slug: "banrisul",
+        first_color: "#6798bd",
+        second_color: "#2d3250",
+        type: "bank",
+      },
+      {
+        name: "Bradesco",
+        slug: "bradesco",
+        first_color: "#bd6796",
+        second_color: "#502d38",
+        type: "bank",
+      },
+      {
+        name: "Banco do Brasil",
+        slug: "banco_do_brasil",
+        first_color: "#bda767",
+        second_color: "#503b2d",
+        type: "bank",
+      },
+      {
+        name: "Santander",
+        slug: "santander",
+        first_color: "#bd6796",
+        second_color: "#502d38",
+        type: "bank",
+      },
+      {
+        name: "Itaú",
+        slug: "itau",
+        first_color: "#bd8967",
+        second_color: "#50352d",
+        type: "bank",
+      },
+      {
+        name: "Caixa",
+        slug: "caixa",
+        first_color: "#6798bd",
+        second_color: "#2d3250",
+        type: "bank",
+      },
+      {
+        name: "PicPay",
+        slug: "picpay",
+        first_color: "#70bd86",
+        second_color: "#2d5042",
+        type: "digital_wallet",
+      },
+      {
+        name: "PayPal",
+        slug: "paypal",
+        first_color: "#6798bd",
+        second_color: "#2d3250",
+        type: "digital_wallet",
+      },
+      {
+        name: "MercadoPago",
+        slug: "mercadopago",
+        first_color: "#6798bd",
+        second_color: "#2d3250",
+        type: "digital_wallet",
+      },
+      {
+        name: "Inter",
+        slug: "inter",
+        first_color: "#bd8967",
+        second_color: "#50352d",
+        type: "bank",
+      },
+      {
+        name: "Nubank",
+        slug: "nubank",
+        first_color: "#8467bd",
+        second_color: "#392d50",
+        type: "digital_wallet",
+      },
+      {
+        name: "Neon",
+        slug: "neon",
+        first_color: "#6798bd",
+        second_color: "#2d3250",
+        type: "digital_wallet",
+      },
+      {
+        name: "C6",
+        slug: "c6",
+        first_color: "#949398",
+        second_color: "#3d3d3e",
+        type: "bank",
+      },
     ];
 
-    for (const { name, slug, type } of accounts) {
+    for (const { name, slug, first_color, second_color, type } of accounts) {
       await database.runAsync(
-        `INSERT OR IGNORE INTO accounts (name, slug, type) VALUES (?, ?, ?)`,
-        [name, slug, type]
+        `INSERT OR IGNORE INTO accounts (name, slug, first_color, second_color, type) VALUES (?, ?, ?, ?, ?)`,
+        [name, slug, first_color, second_color, type]
       );
 
       console.log(`[SEED] Account ${name} (${slug}) created.`);

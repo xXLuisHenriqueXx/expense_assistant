@@ -68,7 +68,7 @@ const Login = () => {
       </Header>
 
       <Form
-        style={{ elevation: 32, shadowColor: theme.colors.primary }}
+        style={{ elevation: 32, shadowColor: theme.colors.highlight }}
         contentContainerStyle={{ rowGap: 48, paddingBottom: 32 }}
         from={{ opacity: 0, translateY: -500 }}
         animate={{ opacity: 1, translateY: 0 }}
@@ -95,7 +95,7 @@ const Login = () => {
             placeholder="Seu e-mail ..."
             placeholderTextColor={theme.colors.primary30}
             returnKeyType="done"
-            onSubmitEditing={() => emailRef.current?.focus()}
+            onSubmitEditing={handleLogin}
             value={fields.email}
             onChangeText={(text: string) =>
               setFields({ ...fields, email: text })

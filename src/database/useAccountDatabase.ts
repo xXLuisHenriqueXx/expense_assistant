@@ -21,6 +21,7 @@ export function useAccountDatabase() {
       `
       SELECT ua.user_id, ua.account_id, ua.balance,
              a.id as a_id, a.name as a_name, a.slug as a_slug,
+             a.first_color as a_first_color, a.second_color as a_second_color,
              a.type as a_type, a.currency as a_currency
       FROM user_accounts ua
       JOIN accounts a ON ua.account_id = a.id
@@ -38,6 +39,8 @@ export function useAccountDatabase() {
         id: row.a_id,
         name: row.a_name,
         slug: row.a_slug,
+        first_color: row.a_first_color,
+        second_color: row.a_second_color,
         type: row.a_type,
         currency: row.a_currency,
       },

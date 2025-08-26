@@ -25,6 +25,8 @@ export async function initializeDatabase(database: SQLiteDatabase) {
     // console.log("[INITIALIZE] Categories table dropped.");
     // await database.execAsync(`DROP TABLE IF EXISTS expenses;`);
     // console.log("[INITIALIZE] Expenses table dropped.");
+    // await database.execAsync(`DROP TABLE IF EXISTS meta;`);
+    // console.log("[INITIALIZE] Meta table dropped.");
 
     console.log("[INITIALIZE] Creating tables...");
     await database.execAsync(`
@@ -41,6 +43,8 @@ export async function initializeDatabase(database: SQLiteDatabase) {
             id INTEGER PRIMARY KEY AUTOINCREMENT,
             name TEXT NOT NULL,
             slug TEXT NOT NULL UNIQUE,
+            first_color TEXT NOT NULL,
+            second_color TEXT NOT NULL,
             type TEXT CHECK(type IN ('bank','digital_wallet')) NOT NULL,
             currency TEXT DEFAULT 'BRL'
         );
@@ -128,6 +132,7 @@ export async function initializeDatabase(database: SQLiteDatabase) {
         value TEXT
         );    
     `);
+    console.log("[INITIALIZE] Meta table created.");
 
     await database.execAsync(
       `CREATE INDEX IF NOT EXISTS idx_monthly_expenses_user ON monthly_expenses(user_expense_id);`
