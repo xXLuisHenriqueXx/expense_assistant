@@ -53,7 +53,7 @@ const Login = () => {
   };
 
   return (
-    <ContainerMain>
+    <ContainerMain rowGap={72}>
       <Header
         from={{ opacity: 0, translateY: 500 }}
         animate={{ opacity: 1, translateY: 0 }}

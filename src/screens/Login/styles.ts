@@ -13,7 +13,7 @@ export const Header = styled(MotiView)`
   row-gap: 4px;
   width: 100%;
   padding: 0 24px;
-  margin: 72px 0;
+  margin-top: 72px;
 `;
 
 export const Title = styled.Text`
