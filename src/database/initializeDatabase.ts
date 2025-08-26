@@ -8,23 +8,23 @@ export async function initializeDatabase(database: SQLiteDatabase) {
     await database.execAsync(`PRAGMA foreign_keys = ON;`);
     console.log("[INITIALIZE] Foreign keys enabled.");
 
-    console.log("[INITIALIZE] Dropping tables...");
-    await database.execAsync(`DROP TABLE IF EXISTS user_accounts;`);
-    console.log("[INITIALIZE] User accounts table dropped.");
-    await database.execAsync(`DROP TABLE IF EXISTS user_expenses;`);
-    console.log("[INITIALIZE] User expenses table dropped.");
-    await database.execAsync(`DROP TABLE IF EXISTS expense_categories;`);
-    console.log("[INITIALIZE] Expense categories table dropped.");
-    await database.execAsync(`DROP TABLE IF EXISTS monthly_expenses;`);
-    console.log("[INITIALIZE] Monthly expenses table dropped.");
-    await database.execAsync(`DROP TABLE IF EXISTS user;`);
-    console.log("[INITIALIZE] User table dropped.");
-    await database.execAsync(`DROP TABLE IF EXISTS accounts;`);
-    console.log("[INITIALIZE] Accounts table dropped.");
-    await database.execAsync(`DROP TABLE IF EXISTS categories;`);
-    console.log("[INITIALIZE] Categories table dropped.");
-    await database.execAsync(`DROP TABLE IF EXISTS expenses;`);
-    console.log("[INITIALIZE] Expenses table dropped.");
+    // console.log("[INITIALIZE] Dropping tables...");
+    // await database.execAsync(`DROP TABLE IF EXISTS user_accounts;`);
+    // console.log("[INITIALIZE] User accounts table dropped.");
+    // await database.execAsync(`DROP TABLE IF EXISTS user_expenses;`);
+    // console.log("[INITIALIZE] User expenses table dropped.");
+    // await database.execAsync(`DROP TABLE IF EXISTS expense_categories;`);
+    // console.log("[INITIALIZE] Expense categories table dropped.");
+    // await database.execAsync(`DROP TABLE IF EXISTS monthly_expenses;`);
+    // console.log("[INITIALIZE] Monthly expenses table dropped.");
+    // await database.execAsync(`DROP TABLE IF EXISTS user;`);
+    // console.log("[INITIALIZE] User table dropped.");
+    // await database.execAsync(`DROP TABLE IF EXISTS accounts;`);
+    // console.log("[INITIALIZE] Accounts table dropped.");
+    // await database.execAsync(`DROP TABLE IF EXISTS categories;`);
+    // console.log("[INITIALIZE] Categories table dropped.");
+    // await database.execAsync(`DROP TABLE IF EXISTS expenses;`);
+    // console.log("[INITIALIZE] Expenses table dropped.");
 
     console.log("[INITIALIZE] Creating tables...");
     await database.execAsync(`

@@ -2,9 +2,7 @@ import React, { useRef, useState } from "react";
 import { ActivityIndicator, Alert, TextInput } from "react-native";
 import {
   ButtonLogin,
-  Container,
   ContainerInput,
-  ContainerOverlay,
   Form,
   Header,
   Input,
@@ -14,6 +12,8 @@ import {
   Title,
 } from "./styles";
 import { Wallet } from "lucide-react-native";
+
+import ContainerMain from "@src/components/ContainerMain";
 
 import { useThemeStore } from "@src/stores/ThemeStore";
 import { useUserDatabase } from "@src/database/useUserDatabase";
@@ -53,12 +53,7 @@ const Login = () => {
   };
 
   return (
-    <Container
-      source={require("@assets/purple_background.jpg")}
-      resizeMode="cover"
-    >
-      <ContainerOverlay />
-
+    <ContainerMain>
       <Header
         from={{ opacity: 0, translateY: 500 }}
         animate={{ opacity: 1, translateY: 0 }}
@@ -116,7 +111,7 @@ const Login = () => {
           )}
         </ButtonLogin>
       </Form>
-    </Container>
+    </ContainerMain>
   );
 };
 

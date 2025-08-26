@@ -1,31 +1,10 @@
 import styled from "styled-components/native";
-import Constants from "expo-constants";
 import { ThemeType } from "@src/stores/ThemeStore";
 import { MotiScrollView, MotiView } from "moti";
-
-const statusBarHeight = Constants.statusBarHeight;
 
 interface ITheme {
   theme: ThemeType;
 }
-
-export const Container = styled.ImageBackground`
-  position: relative;
-  flex: 1;
-  flex-direction: column;
-  align-items: center;
-  row-gap: 72px;
-  padding-top: ${statusBarHeight + 72}px;
-`;
-
-export const ContainerOverlay = styled.View`
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: rgba(15, 7, 30, 0.9);
-`;
 
 export const Header = styled(MotiView)`
   flex-direction: column;
@@ -33,7 +12,8 @@ export const Header = styled(MotiView)`
   justify-content: center;
   row-gap: 4px;
   width: 100%;
-  padding: 0 16px;
+  padding: 0 24px;
+  margin: 72px 0;
 `;
 
 export const Title = styled.Text`
@@ -54,9 +34,9 @@ export const Subtitle = styled.Text`
 export const Form = styled(MotiScrollView)`
   flex: 1;
   width: 100%;
-  padding: 0 16px;
+  padding: 0 24px;
   background-color: ${({ theme }: ITheme) => theme.colors.secondary};
-  border-radius: 0 28px 0 0;
+  border-radius: 0 32px 0 0;
 `;
 
 export const ContainerInput = styled.View`
@@ -65,7 +45,7 @@ export const ContainerInput = styled.View`
   height: 56px;
   padding: 0 16px;
   border: 1.5px solid ${({ theme }: ITheme) => theme.colors.primary60};
-  border-radius: 12px;
+  border-radius: 16px;
 `;
 
 export const Label = styled.Text`
@@ -95,7 +75,7 @@ export const ButtonLogin = styled.TouchableOpacity.attrs({
   height: 56px;
   padding: 0 16px;
   background-color: ${({ theme }: ITheme) => theme.colors.highlight};
-  border-radius: 12px;
+  border-radius: 16px;
 `;
 
 export const TextLogin = styled.Text`
