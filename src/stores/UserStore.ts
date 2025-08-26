@@ -1,6 +1,5 @@
 import { create } from "zustand";
 
-import { useUserDatabase } from "@src/database/useUserDatabase";
 import { IUser } from "@src/common/entities/User";
 
 interface UserState {
