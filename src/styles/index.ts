@@ -2,12 +2,16 @@ import { DefaultTheme } from "styled-components";
 
 export const theme: DefaultTheme = {
   colors: {
-    primary: "#E9E9F0",
-    primary30: "#E9E9F050",
-    secondary: "#1A202C",
-    tertiary: "#34384E",
-    highlight: "#32D59E",
-    highlight30: "#32D59E50",
+    primary: "#eeeeee",
+    primary30: "#eeeeee50",
+    primary60: "#eeeeee99",
+    primary80: "#eeeeeecc",
+    secondary: "#201f2c",
+    tertiary: "#312f3b",
+    highlight: "#7262b4",
+    highlight30: "#7262b450",
+    highlight60: "#7262b499",
+    highlight80: "#7262b4cc",
   },
   borderRadius: {
     default: "4",
