@@ -19,6 +19,7 @@ export const theme: DefaultTheme = {
   fonts: {
     interRegular: "Inter_400Regular",
     interMedium: "Inter_500Medium",
+    interSemiBold: "Inter_600SemiBold",
     interBold: "Inter_700Bold",
     interExtraBold: "Inter_800ExtraBold",
   },

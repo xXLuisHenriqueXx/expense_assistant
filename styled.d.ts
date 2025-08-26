@@ -20,6 +20,7 @@ declare module "styled-components" {
     fonts: {
       interRegular: string;
       interMedium: string;
+      interSemiBold: string;
       interBold: string;
       interExtraBold: string;
     };
