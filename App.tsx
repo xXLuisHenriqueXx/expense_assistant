@@ -56,15 +56,14 @@ export default function App() {
   if (!fontsLoaded) return null;
 
   return (
-    <SQLiteProvider databaseName="expenses.db" onInit={initializeDatabase}>
-      <StatusBar
-        barStyle={"light-content"}
-        backgroundColor={theme.colors.secondary}
-      />
+    <SafeAreaView style={{ flex: 1 }}>
+      <SQLiteProvider databaseName="expenses.db" onInit={initializeDatabase}>
+        <StatusBar barStyle={"light-content"} backgroundColor="transparent" />
 
-      <ThemeProvider theme={theme}>
-        <Routes />
-      </ThemeProvider>
-    </SQLiteProvider>
+        <ThemeProvider theme={theme}>
+          <Routes />
+        </ThemeProvider>
+      </SQLiteProvider>
+    </SafeAreaView>
   );
 }

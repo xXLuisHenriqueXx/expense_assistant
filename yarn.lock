@@ -1367,13 +1367,6 @@
     "@jridgewell/resolve-uri" "^3.1.0"
     "@jridgewell/sourcemap-codec" "^1.4.14"
 
-"@legendapp/list@^1.1.4":
-  version "1.1.4"
-  resolved "https://registry.yarnpkg.com/@legendapp/list/-/list-1.1.4.tgz#2d8f6ade038735ab1ca79fd493366ec464331eb8"
-  integrity sha512-Q+eLlMilmV2F8/orcR+0XFq543Up3V06WXqG/lpGqowo5reSXsjVCo7dQWNpvU+1+stb87SeAHw9k130DKa+iw==
-  dependencies:
-    use-sync-external-store "^1.5.0"
-
 "@motionone/animation@^10.12.0":
   version "10.18.0"
   resolved "https://registry.yarnpkg.com/@motionone/animation/-/animation-10.18.0.tgz#868d00b447191816d5d5cf24b1cafa144017922b"
@@ -3600,6 +3593,11 @@ expo-asset@~10.0.10:
     expo-constants "~16.0.0"
     invariant "^2.2.4"
     md5-file "^3.2.3"
+
+expo-blur@~13.0.3:
+  version "13.0.3"
+  resolved "https://registry.yarnpkg.com/expo-blur/-/expo-blur-13.0.3.tgz#f150f396ce8d0aac95587bc84806abf63ba2e2ba"
+  integrity sha512-z5W9ZGlG6ZiRLuoJZG1AHRvjK8j+2+nc/mtvEtyAa8T/8iTNpUnX4eC8xXDoTL/H4y2pc3cHvytDjCXJG26pcQ==
 
 expo-constants@~16.0.0:
   version "16.0.2"
@@ -7795,11 +7793,6 @@ use-latest-callback@^0.2.1:
   version "0.2.4"
   resolved "https://registry.yarnpkg.com/use-latest-callback/-/use-latest-callback-0.2.4.tgz#35c0f028f85a3f4cf025b06011110e87cc18f57e"
   integrity sha512-LS2s2n1usUUnDq4oVh1ca6JFX9uSqUncTfAm44WMg0v6TxL7POUTk1B044NH8TeLkFbNajIsgDHcgNpNzZucdg==
-
-use-sync-external-store@^1.5.0:
-  version "1.5.0"
-  resolved "https://registry.yarnpkg.com/use-sync-external-store/-/use-sync-external-store-1.5.0.tgz#55122e2a3edd2a6c106174c27485e0fd59bcfca0"
-  integrity sha512-Rb46I4cGGVBmjamjphe8L/UnvJD+uPPtTkNvX5mZgqdbavhI4EbgIWJiIHXJ8bc/i9EQGPRh4DwEURJ552Do0A==
 
 util-deprecate@^1.0.1, util-deprecate@~1.0.1:
   version "1.0.2"
