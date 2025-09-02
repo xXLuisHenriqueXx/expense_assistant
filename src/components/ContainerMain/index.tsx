@@ -13,8 +13,8 @@ const ContainerMain = ({ children, rowGap }: IContainerMainProps) => {
       source={require("@assets/purple_background.jpg")}
       resizeMode="cover"
     >
-      <Blur />
       <ContainerOverlay />
+      <Blur />
 
       {children}
     </Container>

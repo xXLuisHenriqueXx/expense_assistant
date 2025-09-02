@@ -1,6 +1,7 @@
 import styled from "styled-components/native";
 import Constants from "expo-constants";
-import { BlurView } from "expo-blur";
+
+import { BlurView } from "@react-native-community/blur";
 
 const statusBarHeight = Constants.statusBarHeight;
 
@@ -18,12 +19,12 @@ export const ContainerOverlay = styled.View`
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: rgba(11, 11, 13, 0.9);
+  background-color: rgba(23, 23, 68, 0.5);
 `;
 
 export const Blur = styled(BlurView).attrs({
-  tint: "dark",
-  intensity: 95,
+  blurType: "dark",
+  blurAmount: 15,
 })`
   position: absolute;
   top: 0;
