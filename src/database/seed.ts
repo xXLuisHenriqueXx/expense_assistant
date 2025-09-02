@@ -33,7 +33,7 @@ export async function seed(database: SQLiteDatabase) {
       },
       {
         name: "Banco do Brasil",
-        slug: "banco_do_brasil",
+        slug: "bancodobrasil",
         first_color: "#bda767",
         second_color: "#503b2d",
         type: "bank",
@@ -92,13 +92,6 @@ export async function seed(database: SQLiteDatabase) {
         slug: "nubank",
         first_color: "#8467bd",
         second_color: "#392d50",
-        type: "digital_wallet",
-      },
-      {
-        name: "Neon",
-        slug: "neon",
-        first_color: "#6798bd",
-        second_color: "#2d3250",
         type: "digital_wallet",
       },
       {
