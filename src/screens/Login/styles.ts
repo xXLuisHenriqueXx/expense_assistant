@@ -35,7 +35,7 @@ export const Form = styled(MotiScrollView)`
   flex: 1;
   width: 100%;
   padding: 0 24px;
-  background-color: ${({ theme }: ITheme) => theme.colors.secondary};
+  background-color: ${({ theme }: ITheme) => theme.colors.tertiary};
   border-radius: 0 32px 0 0;
 `;
 
@@ -52,7 +52,7 @@ export const Label = styled.Text`
   position: absolute;
   top: -12px;
   left: 16px;
-  background-color: ${({ theme }: ITheme) => theme.colors.secondary};
+  background-color: ${({ theme }: ITheme) => theme.colors.tertiary};
   padding: 0 8px;
   font-size: 14px;
   font-weight: 700;
