@@ -58,7 +58,11 @@ export default function App() {
   return (
     <SafeAreaView style={{ flex: 1 }}>
       <SQLiteProvider databaseName="expenses.db" onInit={initializeDatabase}>
-        <StatusBar barStyle={"light-content"} backgroundColor="transparent" />
+        <StatusBar
+          barStyle={"light-content"}
+          backgroundColor="transparent"
+          translucent
+        />
 
         <ThemeProvider theme={theme}>
           <Routes />
