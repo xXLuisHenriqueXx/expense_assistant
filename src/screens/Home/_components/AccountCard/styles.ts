@@ -16,7 +16,7 @@ export const Container = styled(LinearGradient).attrs({
   justify-content: start;
   height: 192px;
   padding: 16px;
-  border-radius: 8px;
+  border-radius: ${({ theme }: ITheme) => theme.borderRadius.default}px;
   overflow: hidden;
 `;
 
@@ -54,7 +54,7 @@ export const ContainerLogo = styled.View`
   justify-content: center;
   width: 56px;
   height: 56px;
-  background-color: ${({ theme }: ITheme) => theme.colors.primary60};
+  background-color: ${({ theme }: ITheme) => theme.colors.primary50};
   border-radius: 28px;
 `;
 
@@ -66,10 +66,9 @@ export const Logo = styled.Image.attrs({
 `;
 
 export const TextName = styled.Text`
-  font-size: 14px;
-  font-family: ${({ theme }: ITheme) => theme.fonts.interExtraBold};
+  font-size: 16px;
+  font-family: ${({ theme }: ITheme) => theme.fonts.interBold};
   color: ${({ theme }: ITheme) => theme.colors.primary};
-  text-transform: uppercase;
 `;
 
 export const TextCurrency = styled.Text`
@@ -79,10 +78,10 @@ export const TextCurrency = styled.Text`
   font-size: 14px;
   font-family: ${({ theme }: ITheme) => theme.fonts.interBold};
   color: ${({ theme }: ITheme) => theme.colors.primary};
-  padding: 2px 8px;
-  background-color: ${({ theme }: ITheme) => theme.colors.tertiary};
+  padding: 4px 8px;
+  background-color: ${({ theme }: ITheme) => theme.colors.secondary};
   opacity: 0.85;
-  border-radius: 4px;
+  border-radius: 8px;
 `;
 
 export const TextBalance = styled.Text`
@@ -90,6 +89,6 @@ export const TextBalance = styled.Text`
   bottom: 16px;
   right: 16px;
   font-size: 18px;
-  font-family: ${({ theme }: ITheme) => theme.fonts.interExtraBold};
-  color: ${({ theme }: ITheme) => theme.colors.primary60};
+  font-family: ${({ theme }: ITheme) => theme.fonts.interSemiBold};
+  color: ${({ theme }: ITheme) => theme.colors.primary75};
 `;
