@@ -9,6 +9,7 @@ import LoaderSkeleton from "@src/components/LoaderSkeleton";
 
 import { useAccountStore } from "@src/stores/AccountStore";
 import { useAccountDatabase } from "@src/database/useAccountDatabase";
+import { formatBalance } from "@src/utils/formatBalance";
 
 interface IUserAccountsProps {
   id: number;
@@ -59,7 +60,7 @@ const UserAccounts = ({ id, showModal, setShowModal }: IUserAccountsProps) => {
           <AccountCard
             key={acc.account_id}
             account={acc.account}
-            balance={acc.balance}
+            balance={formatBalance(String(acc.balance))}
           />
         ))}
 
