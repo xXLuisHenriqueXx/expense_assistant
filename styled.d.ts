@@ -5,16 +5,16 @@ declare module "styled-components" {
     colors: {
       primary: string;
       primary10: string;
-      primary30: string;
-      primary60: string;
-      primary80: string;
+      primary25: string;
+      primary50: string;
+      primary75: string;
       secondary: string;
       tertiary: string;
       highlight: string;
       highlight10: string;
-      highlight30: string;
-      highlight60: string;
-      highlight80: string;
+      highlight25: string;
+      highlight50: string;
+      highlight75: string;
     };
     borderRadius: {
       default: string;
