@@ -20,8 +20,7 @@ export const Title = styled.Text`
 `;
 
 export const Subtitle = styled.Text`
-  width: 80%;
   font-size: 14px;
-  font-family: ${({ theme }: ITheme) => theme.fonts.interRegular};
-  color: ${({ theme }: ITheme) => theme.colors.primary60};
+  font-family: ${({ theme }: ITheme) => theme.fonts.interMedium};
+  color: ${({ theme }: ITheme) => theme.colors.primary75};
 `;
