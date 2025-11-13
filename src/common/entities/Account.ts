@@ -1,5 +1,5 @@
 export interface IAccount {
-  id: string;
+  id: number;
   name: string;
   slug: string;
   first_color: string;
@@ -9,8 +9,8 @@ export interface IAccount {
 }
 
 export interface IUserAccount {
-  user_id: string;
-  account_id: string;
+  user_id: number;
+  account_id: number;
   balance: number;
   account: IAccount;
 }
