@@ -1,34 +1,27 @@
 import styled from "styled-components/native";
-import Constants from "expo-constants";
 
-import { BlurView } from "@react-native-community/blur";
+import { ThemeType } from "@src/stores/ThemeStore";
+import { STATUS_BAR_HEIGHT } from "@src/constants/Values";
 
-const statusBarHeight = Constants.statusBarHeight;
+interface ITheme {
+  theme: ThemeType;
+}
 
-export const Container = styled.ImageBackground`
+interface IContainerProps {
+  rowGap: number;
+}
+
+export const Container = styled.ScrollView.attrs<IContainerProps>(
+  (props: IContainerProps) => ({
+    contentContainerStyle: {
+      flex: 1,
+      alignItems: "center",
+      rowGap: props.rowGap,
+    },
+  })
+)<IContainerProps>`
   position: relative;
   flex: 1;
-  flex-direction: column;
-  align-items: center;
-  padding-top: ${statusBarHeight}px;
-`;
-
-export const ContainerOverlay = styled.View`
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: rgba(23, 23, 68, 0.5);
-`;
-
-export const Blur = styled(BlurView).attrs({
-  blurType: "dark",
-  blurAmount: 15,
-})`
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
+  padding-top: ${STATUS_BAR_HEIGHT + 64}px;
+  background-color: ${({ theme }: ITheme) => theme.colors.secondary};
 `;

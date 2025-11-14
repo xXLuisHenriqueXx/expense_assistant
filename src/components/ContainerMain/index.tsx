@@ -1,24 +1,13 @@
 import { ReactNode } from "react";
-import { Blur, Container, ContainerOverlay } from "./styles";
+import { Container } from "./styles";
 
 interface IContainerMainProps {
   children: ReactNode;
-  rowGap: number;
+  rowGap?: number;
 }
 
-const ContainerMain = ({ children, rowGap }: IContainerMainProps) => {
-  return (
-    <Container
-      style={{ rowGap }}
-      source={require("@assets/purple_background.jpg")}
-      resizeMode="cover"
-    >
-      <ContainerOverlay />
-      <Blur />
-
-      {children}
-    </Container>
-  );
+const ContainerMain = ({ children, rowGap = 0 }: IContainerMainProps) => {
+  return <Container rowGap={rowGap}>{children}</Container>;
 };
 
 export default ContainerMain;
