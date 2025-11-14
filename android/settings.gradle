@@ -44,7 +44,7 @@ if (getRNMinorVersion() >= 75) {
   }
 }
 
-rootProject.name = 'expense_assistant'
+rootProject.name = 'Expense Assistant'
 
 dependencyResolutionManagement {
   versionCatalogs {
