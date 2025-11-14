@@ -10,6 +10,7 @@ import LoaderSkeleton from "@src/components/LoaderSkeleton";
 import { useAccountStore } from "@src/stores/AccountStore";
 import { useAccountDatabase } from "@src/database/useAccountDatabase";
 import { formatBalance } from "@src/utils/formatBalance";
+import { WIDTH } from "@src/constants/Values";
 
 interface IUserAccountsProps {
   id: number;
@@ -43,8 +44,7 @@ const UserAccounts = ({ id, showModal, setShowModal }: IUserAccountsProps) => {
     fetchData();
   }, [id, showModal]);
 
-  if (isLoading || !userAccounts.length)
-    return <LoaderSkeleton width={width - 48} height={192} />;
+  if (isLoading) return <LoaderSkeleton width={WIDTH - 48} height={192} />;
 
   return (
     <Container>

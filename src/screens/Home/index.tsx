@@ -15,21 +15,23 @@ const Home = () => {
   if (!user) return;
 
   return (
-    <ContainerMain rowGap={32}>
-      <Header name={user.name} />
+    <>
+      <ContainerMain rowGap={32}>
+        <Header name={user.name} />
 
-      <UserAccounts
-        id={user.id}
-        showModal={showModal}
-        setShowModal={setShowModal}
-      />
+        <UserAccounts
+          id={user.id}
+          showModal={showModal}
+          setShowModal={setShowModal}
+        />
+      </ContainerMain>
 
       <AddAccountModal
         id={user.id}
         showModal={showModal}
         setShowModal={setShowModal}
       />
-    </ContainerMain>
+    </>
   );
 };
 

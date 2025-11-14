@@ -30,17 +30,6 @@ export const Container = styled(MotiView).attrs({
   background-color: rgba(11, 11, 13, 0.9);
 `;
 
-export const ContainerClose = styled.TouchableOpacity.attrs({
-  activeOpacity: 1,
-})`
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  z-index: 1;
-`;
-
 export const ContainerAvoid = styled(KeyboardAvoidingView).attrs({
   behavior: "height",
 })`
