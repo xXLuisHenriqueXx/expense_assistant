@@ -1,34 +1,27 @@
 import { useCallback, useEffect, useRef, useState } from "react";
-import { ActivityIndicator } from "react-native";
 import {
-  ButtonCreate,
-  CloseButton,
   Container,
   ContainerAvoid,
   ContainerCard,
-  ContainerClose,
-  ContainerHeader,
-  ContainerInput,
   ContainerModal,
   Dot,
   DotsContainer,
-  Input,
-  Label,
-  TextCreate,
-  Title,
 } from "./styles";
-
-import { useAccountDatabase } from "@src/database/useAccountDatabase";
-import { useAccountStore } from "@src/stores/AccountStore";
-import { useThemeStore } from "@src/stores/ThemeStore";
 import { Masks } from "react-native-mask-input";
-import { X } from "lucide-react-native";
-import { AnimatePresence } from "moti";
-import AccountCard from "../AccountCard";
 import PagerView, {
   PagerViewOnPageSelectedEvent,
 } from "react-native-pager-view";
+import { AnimatePresence } from "moti";
+
+import { Button } from "@src/components/Button";
+import { Input } from "@src/components/Input";
+import AccountCard from "../AccountCard";
+import Header from "./Header";
+
+import { useAccountDatabase } from "@src/database/useAccountDatabase";
+import { useAccountStore } from "@src/stores/AccountStore";
 import { formatBalance } from "@src/utils/formatBalance";
+import { WIDTH } from "@src/constants/Values";
 
 interface IAddAccountModalProps {
   id: number | undefined;
@@ -40,29 +33,34 @@ const AddAccountModal = ({
   showModal,
   setShowModal,
 }: IAddAccountModalProps) => {
-  const { theme } = useThemeStore();
-  const { getAll, create } = useAccountDatabase();
+  const { getAll, getUserAccounts, create } = useAccountDatabase();
   const { accounts, setAccounts } = useAccountStore();
 
   const pagerRef = useRef<PagerView>(null);
 
   const [activeIndex, setActiveIndex] = useState<number>(0);
   const [balance, setBalance] = useState<string>("");
-  const [loadingState, setLoadingState] = useState<boolean>(false);
+  const [loadingState, setLoadingState] = useState<boolean>(true);
 
-  const fetchData = async () => {
-    setLoadingState(true);
-
+  const fetchData = useCallback(async () => {
     try {
       const accounts = await getAll();
+      const userAccounts = await getUserAccounts(id!);
 
-      setAccounts(accounts);
+      const accountsFiltered = accounts.filter(
+        (account) =>
+          !userAccounts.find(
+            (userAccount) => userAccount.account.id === account.id
+          )
+      );
+
+      setAccounts(accountsFiltered);
     } catch (error) {
       console.log(error);
     } finally {
       setLoadingState(false);
     }
-  };
+  }, [id, getAll, getUserAccounts, setAccounts]);
 
   const handlePageSelected = useCallback(
     (event: PagerViewOnPageSelectedEvent) => {
@@ -75,14 +73,14 @@ const AddAccountModal = ({
     if (!id) return;
     if (balance === "") return;
 
-    console.log(balance);
-
     setLoadingState(true);
 
     try {
-      const balanceFormated = balance.replace("R$ ", "").replace(",", ".");
-
-      create(id, accounts[activeIndex].id, Number(balanceFormated));
+      create(
+        id,
+        accounts[activeIndex].id,
+        Number(balance.replace("R$ ", "").replaceAll(".", "").replace(",", "."))
+      );
     } catch (error) {
       console.log(error);
     } finally {
@@ -93,7 +91,7 @@ const AddAccountModal = ({
 
   useEffect(() => {
     fetchData();
-  }, []);
+  }, [showModal]);
 
   const numberOfAccounts = accounts.length;
 
@@ -101,17 +99,9 @@ const AddAccountModal = ({
     <AnimatePresence>
       {showModal && (
         <Container>
-          <ContainerClose onPress={() => setShowModal(false)} />
-
           <ContainerAvoid>
             <ContainerModal>
-              <ContainerHeader>
-                <Title>Adicionar conta</Title>
-                <CloseButton onPress={() => setShowModal(false)}>
-                  <X size={16} color={theme.colors.primary} />
-                </CloseButton>
-              </ContainerHeader>
-
+              <Header onPress={() => setShowModal(false)} />
               <ContainerCard>
                 <PagerView
                   ref={pagerRef}
@@ -138,32 +128,23 @@ const AddAccountModal = ({
                 </DotsContainer>
               </ContainerCard>
 
-              <ContainerInput>
-                <Label>Saldo da conta</Label>
-                <Input
-                  placeholder="Seu e-mail ..."
-                  placeholderTextColor={theme.colors.primary25}
-                  returnKeyType="done"
-                  keyboardType="number-pad"
-                  onSubmitEditing={handleCreate}
-                  value={balance}
-                  onChangeText={(masked: string, unmasked: string) =>
-                    setBalance(masked)
-                  }
-                  mask={Masks.BRL_CURRENCY}
-                />
-              </ContainerInput>
+              <Input.Masked
+                label="Saldo da conta"
+                width={WIDTH - 48}
+                placeholder="R$ 00,00"
+                value={String(balance)}
+                onChangeText={(masked: string, unmasked: string) =>
+                  setBalance(masked)
+                }
+                mask={Masks.BRL_CURRENCY}
+              />
 
-              <ButtonCreate onPress={handleCreate} disabled={loadingState}>
-                {loadingState ? (
-                  <ActivityIndicator
-                    size="large"
-                    color={theme.colors.primary}
-                  />
-                ) : (
-                  <TextCreate>Criar conta</TextCreate>
-                )}
-              </ButtonCreate>
+              <Button.Primary
+                text="Adicionar"
+                width={WIDTH - 48}
+                onPress={handleCreate}
+                loading={loadingState}
+              />
             </ContainerModal>
           </ContainerAvoid>
         </Container>

@@ -1,7 +1,7 @@
-import { Background, Button } from "./styles";
+import { Background, Container } from "./styles";
 import { PlusCircle } from "lucide-react-native";
 
-import PressableButton from "@src/components/PressableButton";
+import { Button } from "@src/components/Button";
 
 import { useThemeStore } from "@src/stores/ThemeStore";
 
@@ -14,13 +14,13 @@ const AddAccountButton = ({ onPress, width }: IAddAccountButtonProps) => {
   const { theme } = useThemeStore();
 
   return (
-    <PressableButton onPress={onPress}>
-      <Button width={width}>
+    <Button.PressablePlaceholder onPress={onPress}>
+      <Container width={width}>
         <Background />
 
         <PlusCircle size={72} color={theme.colors.primary} strokeWidth={0.75} />
-      </Button>
-    </PressableButton>
+      </Container>
+    </Button.PressablePlaceholder>
   );
 };
 

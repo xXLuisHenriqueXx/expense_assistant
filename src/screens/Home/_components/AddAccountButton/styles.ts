@@ -7,7 +7,7 @@ interface ITheme {
   theme: ThemeType;
 }
 
-export const Button = styled.View<ViewProps>`
+export const Container = styled.View<ViewProps>`
   position: relative;
   flex-direction: column;
   align-items: center;
