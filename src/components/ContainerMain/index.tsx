@@ -3,11 +3,10 @@ import { Container } from "./styles";
 
 interface IContainerMainProps {
   children: ReactNode;
-  rowGap?: number;
 }
 
-const ContainerMain = ({ children, rowGap = 0 }: IContainerMainProps) => {
-  return <Container rowGap={rowGap}>{children}</Container>;
+const ContainerMain = ({ children }: IContainerMainProps) => {
+  return <Container>{children}</Container>;
 };
 
 export default ContainerMain;

@@ -7,21 +7,15 @@ interface ITheme {
   theme: ThemeType;
 }
 
-interface IContainerProps {
-  rowGap: number;
-}
-
-export const Container = styled.ScrollView.attrs<IContainerProps>(
-  (props: IContainerProps) => ({
-    contentContainerStyle: {
-      flex: 1,
-      alignItems: "center",
-      rowGap: props.rowGap,
-    },
-  })
-)<IContainerProps>`
+export const Container = styled.ScrollView.attrs({
+  contentContainerStyle: {
+    flex: 1,
+    alignItems: "center",
+    rowGap: 32,
+  },
+})`
   position: relative;
   flex: 1;
-  padding-top: ${STATUS_BAR_HEIGHT + 64}px;
+  padding-top: ${STATUS_BAR_HEIGHT + 32}px;
   background-color: ${({ theme }: ITheme) => theme.colors.secondary};
 `;

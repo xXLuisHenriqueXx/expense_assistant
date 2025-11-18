@@ -16,7 +16,7 @@ const Home = () => {
 
   return (
     <>
-      <ContainerMain rowGap={32}>
+      <ContainerMain>
         <Header name={user.name} />
 
         <UserAccounts

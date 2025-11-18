@@ -45,7 +45,7 @@ const Login = () => {
   };
 
   return (
-    <ContainerMain rowGap={96}>
+    <ContainerMain>
       <Header />
 
       <Form
