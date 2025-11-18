@@ -18,10 +18,10 @@ import { Input } from "@src/components/Input";
 import AccountCard from "../AccountCard";
 import Header from "./Header";
 
-import { useAccountDatabase } from "@src/database/useAccountDatabase";
 import { useAccountStore } from "@src/stores/AccountStore";
 import { formatBalance } from "@src/utils/formatBalance";
 import { WIDTH } from "@src/constants/Values";
+import { useDatabase } from "@src/database/useDatabase";
 
 interface IAddAccountModalProps {
   id: number | undefined;
@@ -33,7 +33,7 @@ const AddAccountModal = ({
   showModal,
   setShowModal,
 }: IAddAccountModalProps) => {
-  const { getAll, getUserAccounts, create } = useAccountDatabase();
+  const { account } = useDatabase();
   const { accounts, setAccounts } = useAccountStore();
 
   const pagerRef = useRef<PagerView>(null);
@@ -44,8 +44,8 @@ const AddAccountModal = ({
 
   const fetchData = useCallback(async () => {
     try {
-      const accounts = await getAll();
-      const userAccounts = await getUserAccounts(id!);
+      const accounts = await account.getAll();
+      const userAccounts = await account.getUserAccounts(id!);
 
       const accountsFiltered = accounts.filter(
         (account) =>
@@ -60,7 +60,7 @@ const AddAccountModal = ({
     } finally {
       setLoadingState(false);
     }
-  }, [id, getAll, getUserAccounts, setAccounts]);
+  }, [id, account.getAll, account.getUserAccounts, setAccounts]);
 
   const handlePageSelected = useCallback(
     (event: PagerViewOnPageSelectedEvent) => {
@@ -76,7 +76,7 @@ const AddAccountModal = ({
     setLoadingState(true);
 
     try {
-      create(
+      account.create(
         id,
         accounts[activeIndex].id,
         Number(balance.replace("R$ ", "").replaceAll(".", "").replace(",", "."))

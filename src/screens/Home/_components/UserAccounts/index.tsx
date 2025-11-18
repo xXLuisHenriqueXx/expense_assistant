@@ -8,9 +8,9 @@ import AddAccountButton from "../AddAccountButton";
 import LoaderSkeleton from "@src/components/LoaderSkeleton";
 
 import { useAccountStore } from "@src/stores/AccountStore";
-import { useAccountDatabase } from "@src/database/useAccountDatabase";
 import { formatBalance } from "@src/utils/formatBalance";
 import { WIDTH } from "@src/constants/Values";
+import { useDatabase } from "@src/database/useDatabase";
 
 interface IUserAccountsProps {
   id: number;
@@ -20,7 +20,7 @@ interface IUserAccountsProps {
 
 const UserAccounts = ({ id, showModal, setShowModal }: IUserAccountsProps) => {
   const { width } = useWindowDimensions();
-  const { getUserAccounts } = useAccountDatabase();
+  const { account } = useDatabase();
   const { userAccounts, setUserAccounts, setLoading, isLoading } =
     useAccountStore();
 
@@ -30,7 +30,7 @@ const UserAccounts = ({ id, showModal, setShowModal }: IUserAccountsProps) => {
     setLoading(true);
 
     try {
-      const userAccounts = await getUserAccounts(id);
+      const userAccounts = await account.getUserAccounts(id);
 
       setUserAccounts(userAccounts);
     } catch (error) {

@@ -9,8 +9,8 @@ import Home from "@src/screens/Home";
 import Expenses from "@src/screens/Expenses";
 
 import { useEffect } from "react";
-import { useUserDatabase } from "@src/database/useUserDatabase";
 import { useUserStore } from "@src/stores/UserStore";
+import { useDatabase } from "@src/database/useDatabase";
 
 export type PropsNavigationStack = {
   Login: undefined;
@@ -23,12 +23,12 @@ const Stack = createNativeStackNavigator<PropsNavigationStack>();
 export type PropsStack = NativeStackNavigationProp<PropsNavigationStack>;
 
 export const Routes = () => {
-  const { get } = useUserDatabase();
+  const { user: userDatabase } = useDatabase();
   const { user, setUser } = useUserStore();
 
   useEffect(() => {
     const loadUser = async () => {
-      const foundUser = await get();
+      const foundUser = await userDatabase.get();
       setUser(foundUser);
     };
     loadUser();

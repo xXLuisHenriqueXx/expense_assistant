@@ -7,10 +7,10 @@ import { Button } from "@src/components/Button";
 import ContainerMain from "@src/components/ContainerMain";
 import Header from "./_components/Header";
 
-import { useUserDatabase } from "@src/database/useUserDatabase";
 import { useUserStore } from "@src/stores/UserStore";
 import { validateLoginFields } from "@src/utils/validateLoginFields";
 import { WIDTH } from "@src/constants/Values";
+import { useDatabase } from "@src/database/useDatabase";
 
 export interface IFieldsLogin {
   name: string;
@@ -18,7 +18,7 @@ export interface IFieldsLogin {
 }
 
 const Login = () => {
-  const { create } = useUserDatabase();
+  const { user } = useDatabase();
   const { setUser, isLoading, setLoading } = useUserStore();
 
   const nameRef = useRef<TextInput>();
@@ -37,7 +37,7 @@ const Login = () => {
     }
 
     setLoading(true);
-    const newUser = await create(fields.name, fields.email);
+    const newUser = await user.create(fields.name, fields.email);
     setUser(newUser);
     setLoading(false);
 
