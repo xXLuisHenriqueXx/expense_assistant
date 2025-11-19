@@ -16,7 +16,25 @@ export const theme: DefaultTheme = {
     highlight75: "#9c7fe7bf",
   },
   borderRadius: {
-    default: "16",
+    sm: "4",
+    md: "8",
+    lg: "12",
+    xl: "16",
+  },
+  padding: {
+    sm: "4",
+    md: "8",
+    lg: "12",
+    xl: "16",
+  },
+  typography: {
+    xs: "10px",
+    sm: "12px",
+    md: "14px",
+    lg: "16px",
+    xl: "18px",
+    xxl: "20px",
+    xxxl: "24px",
   },
   fonts: {
     interRegular: "Inter_400Regular",

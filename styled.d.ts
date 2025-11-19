@@ -17,7 +17,25 @@ declare module "styled-components" {
       highlight75: string;
     };
     borderRadius: {
-      default: string;
+      sm: string;
+      md: string;
+      lg: string;
+      xl: string;
+    };
+    padding: {
+      sm: string;
+      md: string;
+      lg: string;
+      xl: string;
+    };
+    typography: {
+      xs: string;
+      sm: string;
+      md: string;
+      lg: string;
+      xl: string;
+      xxl: string;
+      xxxl: string;
     };
     fonts: {
       interRegular: string;
