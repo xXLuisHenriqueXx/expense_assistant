@@ -27,6 +27,14 @@ declare module "styled-components" {
       md: string;
       lg: string;
       xl: string;
+      xxl: string;
+    };
+    gap: {
+      sm: string;
+      md: string;
+      lg: string;
+      xl: string;
+      xxl: string;
     };
     typography: {
       xs: string;

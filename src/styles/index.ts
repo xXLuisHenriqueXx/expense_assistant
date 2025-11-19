@@ -24,8 +24,16 @@ export const theme: DefaultTheme = {
   padding: {
     sm: "4",
     md: "8",
-    lg: "12",
-    xl: "16",
+    lg: "16",
+    xl: "24",
+    xxl: "32",
+  },
+  gap: {
+    sm: "4",
+    md: "8",
+    lg: "16",
+    xl: "24",
+    xxl: "32",
   },
   typography: {
     xs: "10px",
