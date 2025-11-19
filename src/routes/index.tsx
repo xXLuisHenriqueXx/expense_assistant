@@ -6,7 +6,6 @@ import { NavigationContainer } from "@react-navigation/native";
 
 import Login from "@src/screens/Login";
 import Home from "@src/screens/Home";
-import Expenses from "@src/screens/Expenses";
 
 import { useEffect } from "react";
 import { useUserStore } from "@src/stores/UserStore";
@@ -47,7 +46,6 @@ export const Routes = () => {
         ) : (
           <>
             <Stack.Screen name="Home" component={Home} />
-            <Stack.Screen name="Expenses" component={Expenses} />
           </>
         )}
       </Stack.Navigator>
