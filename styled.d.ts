@@ -37,6 +37,7 @@ declare module "styled-components" {
       xxl: string;
     };
     typography: {
+      xxs: string;
       xs: string;
       sm: string;
       md: string;
