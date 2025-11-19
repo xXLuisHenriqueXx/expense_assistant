@@ -6,6 +6,7 @@ import AddAccountModal from "./_components/AddAccountModal";
 import UserAccounts from "./_components/UserAccounts";
 
 import { useUserStore } from "@src/stores/UserStore";
+import ExpenseTotal from "./_components/ExpenseTotal";
 
 const Home = () => {
   const { user } = useUserStore();
@@ -24,6 +25,8 @@ const Home = () => {
           showModal={showModal}
           setShowModal={setShowModal}
         />
+
+        <ExpenseTotal />
       </ContainerMain>
 
       <AddAccountModal

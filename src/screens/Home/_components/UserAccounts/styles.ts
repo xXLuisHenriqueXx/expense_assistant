@@ -1,7 +1,7 @@
 import styled from "styled-components/native";
+import PagerView, { PagerViewProps } from "react-native-pager-view";
 
 import { ThemeType } from "@src/stores/ThemeStore";
-import PagerView, { PagerViewProps } from "react-native-pager-view";
 
 interface ITheme {
   theme: ThemeType;
@@ -15,9 +15,9 @@ type IContainerScrollProps = PagerViewProps & {
 export const Container = styled.View`
   flex-direction: column;
   align-items: start;
-  row-gap: 16px;
+  row-gap: ${({ theme }: ITheme) => theme.gap.md}px;
   width: 100%;
-  padding: 0 24px;
+  padding: 0 ${({ theme }: ITheme) => theme.padding.xl}px;
 `;
 
 export const ContainerScroll = styled(PagerView)<IContainerScrollProps>`
@@ -26,7 +26,7 @@ export const ContainerScroll = styled(PagerView)<IContainerScrollProps>`
 `;
 
 export const Title = styled.Text`
-  font-size: 16px;
+  font-size: ${({ theme }: ITheme) => theme.typography.sm}px;
   font-family: ${({ theme }: ITheme) => theme.fonts.interMedium};
-  color: ${({ theme }: ITheme) => theme.colors.primary};
+  color: ${({ theme }: ITheme) => theme.colors.primary75};
 `;

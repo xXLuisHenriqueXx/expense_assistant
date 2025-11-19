@@ -50,17 +50,17 @@ export const ContainerModal = styled(MotiView).attrs({
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  row-gap: 32px;
-  padding: 24px;
-  padding-bottom: 48px;
+  row-gap: ${({ theme }: ITheme) => theme.gap.xxl}px;
+  padding: ${({ theme }: ITheme) => theme.padding.xxl}px
+    ${({ theme }: ITheme) => theme.padding.xl}px;
   background-color: ${({ theme }: ITheme) => theme.colors.secondary};
-  border-radius: 16px;
+  border-radius: ${({ theme }: ITheme) => theme.borderRadius.xl}px;
 `;
 
 export const ContainerCard = styled.View`
   flex-direction: column;
   align-items: center;
-  row-gap: 8px;
+  row-gap: ${({ theme }: ITheme) => theme.gap.md}px;
   width: 100%;
 `;
 
@@ -68,13 +68,13 @@ export const DotsContainer = styled.View`
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  column-gap: 4px;
+  column-gap: ${({ theme }: ITheme) => theme.gap.sm}px;
 `;
 
 export const Dot = styled.View<IStyle>`
   width: ${({ active }: IStyle) => (active ? 16 : 6)}px;
   height: 6px;
-  border-radius: 6px;
+  border-radius: ${({ theme }: ITheme) => theme.borderRadius.md}px;
   background-color: ${({ active, theme }: IStyle) =>
-    active ? theme.colors.primary : theme.colors.primary25};
+    active ? theme.colors.primary75 : theme.colors.primary25};
 `;

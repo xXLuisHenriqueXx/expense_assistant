@@ -16,9 +16,9 @@ interface ILegendIconProps {
 
 export const Container = styled.View`
   flex-direction: column;
-  row-gap: 8px;
+  row-gap: ${({ theme }: ITheme) => theme.gap.md}px;
   width: 100%;
-  padding: 0 24px;
+  padding: 0 ${({ theme }: ITheme) => theme.padding.xl}px;
 `;
 
 export const ContainerBar = styled.View`
@@ -28,7 +28,7 @@ export const ContainerBar = styled.View`
   width: 100%;
   height: 16px;
   background-color: ${({ theme }: ITheme) => theme.colors.primary25};
-  border-radius: ${({ theme }: ITheme) => theme.borderRadius.default}px;
+  border-radius: ${({ theme }: ITheme) => theme.borderRadius.xl}px;
   overflow: hidden;
 `;
 
@@ -42,37 +42,37 @@ export const ContainerLegendList = styled.View`
   flex-direction: row;
   flex-wrap: wrap;
   align-items: center;
-  gap: 8px;
+  gap: ${({ theme }: ITheme) => theme.gap.md}px;
   width: 100%;
 `;
 
 export const ContainerLegendItem = styled.View`
   flex-direction: row;
   align-items: center;
-  gap: 4px;
+  gap: ${({ theme }: ITheme) => theme.gap.sm}px;
 `;
 
 export const LegendIcon = styled.View<ILegendIconProps>`
   width: 12px;
   height: 12px;
-  border-radius: ${({ theme }: ITheme) => theme.borderRadius.default}px;
+  border-radius: ${({ theme }: ITheme) => theme.borderRadius.xl}px;
   background-color: ${(props: ILegendIconProps) => props.color};
 `;
 
 export const Title = styled.Text`
-  font-size: 14px;
+  font-size: ${({ theme }: ITheme) => theme.typography.sm}px;
   font-family: ${({ theme }: ITheme) => theme.fonts.interMedium};
   color: ${({ theme }: ITheme) => theme.colors.primary75};
 `;
 
 export const BalanceText = styled.Text`
-  font-size: 24px;
+  font-size: ${({ theme }: ITheme) => theme.typography.xxl}px;
   font-family: ${({ theme }: ITheme) => theme.fonts.interBold};
   color: ${({ theme }: ITheme) => theme.colors.primary};
 `;
 
 export const LegendText = styled.Text`
-  font-size: 10px;
+  font-size: ${({ theme }: ITheme) => theme.typography.xxs}px;
   font-family: ${({ theme }: ITheme) => theme.fonts.interRegular};
   color: ${({ theme }: ITheme) => theme.colors.primary75};
 `;

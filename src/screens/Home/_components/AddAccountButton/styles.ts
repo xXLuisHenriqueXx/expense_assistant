@@ -12,11 +12,10 @@ export const Container = styled.View<ViewProps>`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  row-gap: 8px;
   height: 192px;
-  padding: 8px;
+  padding: ${({ theme }: ITheme) => theme.padding.md}px;
   border: 1.5px dashed ${({ theme }: ITheme) => theme.colors.primary75};
-  border-radius: ${({ theme }: ITheme) => theme.borderRadius.default}px;
+  border-radius: ${({ theme }: ITheme) => theme.borderRadius.xl}px;
   overflow: hidden;
 `;
 
@@ -26,5 +25,5 @@ export const Background = styled.View`
   height: 100%;
   background-color: ${({ theme }: ITheme) => theme.colors.primary};
   opacity: 0.15;
-  border-radius: 8px;
+  border-radius: ${({ theme }: ITheme) => theme.borderRadius.md}px;
 `;

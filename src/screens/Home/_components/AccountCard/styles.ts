@@ -16,7 +16,7 @@ export const Container = styled(LinearGradient).attrs({
   justify-content: start;
   height: 192px;
   padding: 16px;
-  border-radius: ${({ theme }: ITheme) => theme.borderRadius.default}px;
+  border-radius: ${({ theme }: ITheme) => theme.borderRadius.xl}px;
   overflow: hidden;
 `;
 

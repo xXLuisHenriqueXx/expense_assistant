@@ -13,15 +13,15 @@ export const Container = styled.View`
 `;
 
 export const Title = styled.Text`
-  font-size: 16px;
+  font-size: ${({ theme }: ITheme) => theme.typography.sm}px;
   font-family: ${({ theme }: ITheme) => theme.fonts.interMedium};
-  color: ${({ theme }: ITheme) => theme.colors.primary};
+  color: ${({ theme }: ITheme) => theme.colors.primary75};
 `;
 
 export const CloseButton = styled.TouchableOpacity.attrs({
   activeOpacity: 0.85,
 })`
-  padding: 12px;
-  background-color: ${({ theme }: ITheme) => theme.colors.primary10};
-  border-radius: 32px;
+  padding: ${({ theme }: ITheme) => theme.padding.md}px;
+  background-color: ${({ theme }: ITheme) => theme.colors.primary25};
+  border-radius: ${({ theme }: ITheme) => theme.borderRadius.xl}px;
 `;
