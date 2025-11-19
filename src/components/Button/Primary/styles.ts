@@ -17,14 +17,13 @@ export const Button = styled.Pressable.attrs<ITheme>((props: ITheme) => ({
   justify-content: center;
   align-items: center;
   height: 64px;
-  padding: 0 16px;
   background-color: ${({ theme }: ITheme) => theme.colors.highlight};
-  border-radius: ${({ theme }: ITheme) => theme.borderRadius.default}px;
+  border-radius: ${({ theme }: ITheme) => theme.borderRadius.xl}px;
   overflow: hidden;
 `;
 
 export const Text = styled.Text`
-  font-size: 16px;
+  font-size: ${({ theme }: ITheme) => theme.typography.sm}px;
   font-family: ${({ theme }: ITheme) => theme.fonts.interMedium};
   color: ${({ theme }: ITheme) => theme.colors.primary};
 `;

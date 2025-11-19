@@ -14,7 +14,7 @@ const LoaderSkeleton = ({ width, height }: ILoaderSkeletonProps) => {
     <Skeleton
       width={width}
       height={height}
-      radius={Number(theme.borderRadius.default)}
+      radius={Number(theme.borderRadius.xl)}
       colors={[theme.colors.highlight10, theme.colors.primary10]}
     />
   );

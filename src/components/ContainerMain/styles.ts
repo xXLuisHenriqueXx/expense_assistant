@@ -16,6 +16,6 @@ export const Container = styled.ScrollView.attrs({
 })`
   position: relative;
   flex: 1;
-  padding-top: ${STATUS_BAR_HEIGHT + 32}px;
+  padding-top: ${STATUS_BAR_HEIGHT + 64}px;
   background-color: ${({ theme }: ITheme) => theme.colors.secondary};
 `;

@@ -25,6 +25,6 @@ export const Container = styled.Pressable.attrs<IPressableProps>(
 )<IPressableProps>`
   opacity: ${(props: IPressableProps) => (props.disabled ? 0.5 : 1)};
   border-radius: ${(props: IPressableProps) =>
-    props.borderRadius || props.theme.borderRadius.default}px;
+    props.borderRadius || props.theme.borderRadius.xl}px;
   overflow: hidden;
 `;

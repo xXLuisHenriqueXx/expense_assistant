@@ -3,6 +3,7 @@ import { TextInputProps } from "react-native";
 import { Container, Input, Label } from "./styles";
 
 import { WIDTH } from "@src/constants/Values";
+import { useThemeStore } from "@src/stores/ThemeStore";
 
 type INormalProps = TextInputProps & {
   label: string;
@@ -10,6 +11,8 @@ type INormalProps = TextInputProps & {
 };
 
 const Normal = forwardRef(({ label, width, ...rest }: INormalProps, ref) => {
+  const { theme } = useThemeStore();
+
   const containerWidth = useMemo(() => {
     return width ? width : WIDTH;
   }, [width]);
@@ -17,7 +20,11 @@ const Normal = forwardRef(({ label, width, ...rest }: INormalProps, ref) => {
   return (
     <Container width={containerWidth}>
       <Label>{label}</Label>
-      <Input ref={ref} {...rest} />
+      <Input
+        ref={ref}
+        placeholderTextColor={theme.colors.primary25}
+        {...rest}
+      />
     </Container>
   );
 });
